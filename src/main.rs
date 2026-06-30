@@ -1,12 +1,12 @@
 use clap::Parser;
-use minclang_rust::codegen::codegen;
-use minclang_rust::compiler::{compile, parse, tokenize};
+use simplang_rust::codegen::codegen;
+use simplang_rust::compiler::{compile, parse, tokenize};
 use std::fs;
 use std::path::PathBuf;
 use std::process::{Command, exit};
 
 #[derive(Parser)]
-#[command(name = "minclang", about = "Compile an arithmetic expression to a native binary")]
+#[command(name = "simplang", about = "Compile an arithmetic expression to a native binary")]
 struct Opts {
     #[arg(help = "Source file to compile")]
     file: PathBuf,
@@ -48,7 +48,7 @@ fn main() {
             path.clone()
         }
         None => {
-            let tmp = std::env::temp_dir().join("minclang.s");
+            let tmp = std::env::temp_dir().join("simplang.s");
             fs::write(&tmp, &asm).unwrap_or_else(|e| {
                 eprintln!("Error writing assembly: {e}");
                 exit(1);

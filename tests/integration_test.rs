@@ -1,5 +1,5 @@
-use minclang_rust::codegen::codegen;
-use minclang_rust::compiler::{compile, Expr};
+use simplang_rust::codegen::codegen;
+use simplang_rust::compiler::{compile, Expr};
 use std::process::Command;
 use tempfile::TempDir;
 
